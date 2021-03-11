@@ -12,5 +12,9 @@
 Simulates Cat Tracker for the
 [nRF Asset Tracker for AWS](https://github.com/NordicSemiconductor/asset-tracker-cloud-aws-js).
 
+## Standalone usage
+
+    npm exec -- @nordicsemiconductor/asset-tracker-cloud-device-simulator-aws <path to certificate.json>
+
 > :information_source:
 > [Read the complete nRF Asset Tracker documentation](https://nordicsemiconductor.github.io/asset-tracker-cloud-docs/).
