@@ -2,7 +2,7 @@ import { connect } from './connect'
 import * as fs from 'fs'
 import * as path from 'path'
 
-export const simulator = () => {
+export const simulator = (): void => {
 	const certJSON = process.argv[process.argv.length - 1]
 	let privateKey: string,
 		clientCert: string,
@@ -37,7 +37,7 @@ export const simulator = () => {
 		clientCert: Buffer.from(clientCert),
 		caCert: Buffer.from(
 			fs.readFileSync(
-				path.resolve(process.cwd(), 'data', 'AmazonRootCA1.pem'),
+				path.resolve(__dirname, '..', 'data', 'AmazonRootCA1.pem'),
 				'utf-8',
 			),
 		),
