@@ -36,7 +36,7 @@
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "7.0.27",
     "@types/aws-iot-device-sdk": "2.2.2",
     "@types/node": "14.17.4",
-    "eslint": "7.29.0",
+    "eslint": "7.30.0",
     "husky": "7.0.0",
     "lint-staged": "11.0.0",
     "pinst": "2.1.6",
