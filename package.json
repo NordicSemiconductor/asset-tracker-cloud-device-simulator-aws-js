@@ -27,7 +27,7 @@
   "dependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-device-ui-server": "4.0.1",
     "aws-iot-device-sdk": "2.2.10",
-    "chalk": "4.1.1"
+    "chalk": "4.1.2"
   },
   "devDependencies": {
     "@commitlint/cli": "12.1.4",
