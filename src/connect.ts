@@ -84,10 +84,28 @@ export const connect = async ({
 	})
 
 	let wsConnection: WebSocketConnection
+	const wsNotify = (message: Record<string, any>) => {
+		if (wsConnection !== undefined) {
+			console.log(chalk.magenta('[ws>'), JSON.stringify(message))
+			wsConnection.send(JSON.stringify(message))
+		} else {
+			console.warn(chalk.red('Websocket not connected.'))
+		}
+	}
 
 	connection.on('connect', async () => {
 		console.timeEnd(chalk.green(chalk.inverse(' connected ')))
 		clearInterval(connectingNote)
+
+		const locationDataHandler = (message: string, path: string) => {
+			const topic = `${deviceId}/${path.replace(/^\/+/, '')}`
+			console.log(
+				chalk.magenta('<'),
+				chalk.blue.blueBright(topic),
+				chalk.cyan(message),
+			)
+			connection.publish(topic, message)
+		}
 
 		connection.register(deviceId, {}, async () => {
 			const port = await uiServer({
@@ -96,7 +114,7 @@ export const connect = async ({
 					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(update)))
 					connection.update(deviceId, { state: { reported: update } })
 				},
-				onMessage: (message) => {
+				onSensorMessage: (message) => {
 					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(message)))
 					connection.publish(`${deviceId}/messages`, JSON.stringify(message))
 				},
@@ -108,6 +126,10 @@ export const connect = async ({
 					console.log(chalk.magenta('[ws]'), chalk.cyan('connected'))
 					wsConnection = c
 					connection.get(deviceId)
+				},
+				onMessage: {
+					'/pgps/get': locationDataHandler,
+					'/agps/get': locationDataHandler,
 				},
 			})
 			console.log()
@@ -140,14 +162,11 @@ export const connect = async ({
 			console.log(chalk.magenta('>'), chalk.cyan(stat))
 			console.log(chalk.magenta('>'), chalk.cyan(JSON.stringify(stateObject)))
 			if (stat === 'accepted') {
-				if (wsConnection !== undefined) {
-					cfg = {
-						...cfg,
-						...(stateObject?.desired?.cfg ?? {}),
-					}
-					console.log(chalk.magenta('[ws>'), JSON.stringify(cfg))
-					wsConnection.send(JSON.stringify(cfg))
+				cfg = {
+					...cfg,
+					...(stateObject?.desired?.cfg ?? {}),
 				}
+				wsNotify({ config: cfg })
 			}
 		})
 
@@ -173,5 +192,17 @@ export const connect = async ({
 				'received timeout on ' + thingName + ' with token: ' + clientToken,
 			)
 		})
+
+		connection.on('message', (topic, payload) => {
+			console.log(
+				chalk.magenta('>'),
+				chalk.blue.blueBright(topic),
+				chalk.cyan(payload.toString()),
+			)
+			wsNotify({ message: { topic, payload: payload.toString() } })
+		})
+
+		connection.subscribe(`${deviceId}/pgps`)
+		connection.subscribe(`${deviceId}/agps`)
 	})
 }
