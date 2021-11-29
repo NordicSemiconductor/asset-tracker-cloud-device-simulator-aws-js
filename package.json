@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Simulates Cat Tracker for the nRF Asset Tracker for AWS",
   "bin": "./simulator.js",
+  "type": "module",
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -67,5 +68,6 @@
     "simulator.js",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc"
 }
