@@ -97,7 +97,7 @@ export const connect = async ({
 		console.timeEnd(chalk.green(chalk.inverse(' connected ')))
 		clearInterval(connectingNote)
 
-		const locationDataHandler = (message: string, path: string) => {
+		const messageHandler = (message: string, path: string) => {
 			const topic = `${deviceId}/${path.replace(/^\/+/, '')}`
 			console.log(
 				chalk.magenta('<'),
@@ -128,8 +128,9 @@ export const connect = async ({
 					connection.get(deviceId)
 				},
 				onMessage: {
-					'/pgps/get': locationDataHandler,
-					'/agps/get': locationDataHandler,
+					'/pgps/get': messageHandler,
+					'/agps/get': messageHandler,
+					'/ncellmeas': messageHandler,
 				},
 			})
 			console.log()
