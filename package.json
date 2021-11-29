@@ -3,7 +3,6 @@
   "version": "0.0.0-development",
   "description": "Simulates Cat Tracker for the nRF Asset Tracker for AWS",
   "bin": "./simulator.js",
-  "type": "module",
   "scripts": {
     "postinstall": "husky install",
     "prepublishOnly": "pinst --disable",
@@ -28,7 +27,7 @@
   "dependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-device-ui-server": "4.2.1",
     "aws-iot-device-sdk": "2.2.11",
-    "chalk": "5.0.0"
+    "chalk": "4.1.2"
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "9.2.25",
@@ -68,6 +67,5 @@
     "simulator.js",
     "LICENSE",
     "README.md"
-  ],
-  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc"
+  ]
 }
