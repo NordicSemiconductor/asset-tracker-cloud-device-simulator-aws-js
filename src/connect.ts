@@ -1,5 +1,5 @@
 import { thingShadow } from 'aws-iot-device-sdk'
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 import {
 	uiServer,
 	WebSocketConnection,
