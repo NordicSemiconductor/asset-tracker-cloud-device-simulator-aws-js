@@ -47,7 +47,7 @@ export const connect = async ({
 		},
 		roam: {
 			v: {
-				rsrp: 70,
+				rsrp: -70,
 				area: 30401,
 				mccmnc: 24201,
 				cell: 16964098,
