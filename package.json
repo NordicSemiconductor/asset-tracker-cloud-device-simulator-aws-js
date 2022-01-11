@@ -1,7 +1,7 @@
 {
   "name": "@nordicsemiconductor/asset-tracker-cloud-device-simulator-aws",
   "version": "0.0.0-development",
-  "description": "Simulates Cat Tracker for the nRF Asset Tracker for AWS",
+  "description": "Simulates an nRF9160-based device for the nRF Asset Tracker for AWS.",
   "bin": "./simulator.js",
   "scripts": {
     "postinstall": "husky install",
@@ -17,10 +17,9 @@
   },
   "homepage": "https://github.com/NordicSemiconductor/asset-tracker-cloud-device-simulator-aws-js#readme",
   "keywords": [
-    "Cloud",
-    "IoT",
-    "nRF Asset Tracker",
-    "Nordic Semiconductor"
+    "nrf-asset-tracker",
+    "iot",
+    "device-simulator"
   ],
   "author": "Nordic Semiconductor ASA | nordicsemi.no",
   "license": "BSD-3-Clause",
