@@ -1,9 +1,9 @@
-import { thingShadow } from 'aws-iot-device-sdk'
-import * as chalk from 'chalk'
 import {
 	uiServer,
 	WebSocketConnection,
 } from '@nordicsemiconductor/asset-tracker-cloud-device-ui-server'
+import { thingShadow } from 'aws-iot-device-sdk'
+import * as chalk from 'chalk'
 
 export const defaultConfig = {
 	act: false, // Whether to enable the active mode
@@ -36,17 +36,18 @@ export const connect = async ({
 	const devRoam = {
 		dev: {
 			v: {
-				band: 666,
-				nw: 'LAN',
 				modV: 'device-simulator',
 				brdV: 'device-simulator',
 				appV: version ?? '0.0.0-development',
 				iccid: '12345678901234567890',
+				imei: '352656106111232',
 			},
 			ts: Date.now(),
 		},
 		roam: {
 			v: {
+				band: 666,
+				nw: 'LAN',
 				rsrp: -70,
 				area: 30401,
 				mccmnc: 24201,
