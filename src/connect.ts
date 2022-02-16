@@ -12,6 +12,7 @@ export const defaultConfig = {
 	mvt: 3600, // (movement timeout) In passive mode: Send update at least this often (in seconds)
 	gnsst: 60, // GNSS timeout (in seconds): timeout for GNSS fix
 	acct: 0.1, // Accelerometer threshold: minimal absolute value for and accelerometer reading to be considered movement.
+	nod: [],
 } as const
 
 /**
