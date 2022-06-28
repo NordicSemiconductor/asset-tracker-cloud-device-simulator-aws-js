@@ -1,0 +1,4 @@
+commitlint.config.js
+node_modules/
+dist/
+simulator.js
