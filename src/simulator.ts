@@ -1,6 +1,6 @@
-import { connect } from './connect'
 import * as fs from 'fs'
 import * as path from 'path'
+import { connect } from './connect'
 
 export const simulator = (): void => {
 	const certJSON = process.argv[process.argv.length - 1]
