@@ -31,7 +31,7 @@
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.112",
     "@types/aws-iot-device-sdk": "2.2.4",
-    "@types/node": "16.11.50"
+    "@types/node": "16.11.51"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [
