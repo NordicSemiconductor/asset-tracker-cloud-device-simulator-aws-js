@@ -4,9 +4,7 @@
   "description": "Simulates an nRF9160-based device for the nRF Asset Tracker for AWS.",
   "bin": "./simulator.js",
   "scripts": {
-    "postinstall": "husky install",
-    "prepublishOnly": "pinst --disable",
-    "postpublish": "pinst --enable"
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
