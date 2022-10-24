@@ -6,6 +6,7 @@ export const simulator = (): void => {
 	const certJSON = process.argv[process.argv.length - 1]
 	let privateKey: string,
 		clientCert: string,
+		caCert: string,
 		deviceId: string,
 		endpoint: string,
 		version: string
@@ -13,11 +14,13 @@ export const simulator = (): void => {
 		const c = JSON.parse(fs.readFileSync(certJSON, 'utf-8')) as {
 			privateKey: string
 			clientCert: string
+			caCert: string
 			clientId: string
 			brokerHostname: string
 		}
 		privateKey = c.privateKey
 		clientCert = c.clientCert
+		caCert = c.caCert
 		deviceId = c.clientId
 		endpoint = c.brokerHostname
 	} catch {
@@ -35,15 +38,9 @@ export const simulator = (): void => {
 	void connect({
 		privateKey: Buffer.from(privateKey),
 		clientCert: Buffer.from(clientCert),
-		caCert: Buffer.from(
-			fs.readFileSync(
-				path.resolve(__dirname, '..', 'data', 'AmazonRootCA1.pem'),
-				'utf-8',
-			),
-		),
+		caCert: Buffer.from(caCert),
 		deviceId,
 		endpoint,
-
 		version,
 	})
 }

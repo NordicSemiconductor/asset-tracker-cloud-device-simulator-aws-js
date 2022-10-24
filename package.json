@@ -60,7 +60,6 @@
   "files": [
     "package-lock.json",
     "dist",
-    "data",
     "simulator.js",
     "LICENSE",
     "README.md"
