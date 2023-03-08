@@ -27,7 +27,7 @@
     "chalk": "4.1.2"
   },
   "devDependencies": {
-    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.185",
+    "@nordicsemiconductor/asset-tracker-cloud-code-style": "11.0.186",
     "@types/aws-iot-device-sdk": "2.2.4",
     "@types/node": "18.14.6"
   },
