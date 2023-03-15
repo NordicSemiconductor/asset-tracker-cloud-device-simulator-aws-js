@@ -134,7 +134,7 @@ export const connect = async ({
 				onMessage: {
 					'/pgps/get': messageHandler,
 					'/agps/get': messageHandler,
-					'/ncellmeas': messageHandler,
+					'/ground-fix': messageHandler,
 				},
 			})
 			console.log()
