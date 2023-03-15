@@ -56,6 +56,7 @@ export const connect = async ({
 				mccmnc: 24201,
 				cell: 16964098,
 				ip: '0.0.0.0',
+				eest: 9,
 			},
 			ts: Date.now(),
 		},
