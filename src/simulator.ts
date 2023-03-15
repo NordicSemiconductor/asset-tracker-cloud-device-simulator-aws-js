@@ -1,9 +1,10 @@
-import * as fs from 'fs'
-import * as path from 'path'
-import { connect } from './connect'
+import fs from 'node:fs'
+import path, { parse } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { connect } from './connect.js'
 
 export const simulator = (): void => {
-	const certJSON = process.argv[process.argv.length - 1]
+	const certJSON = process.argv[process.argv.length - 1] ?? '{}'
 	let privateKey: string,
 		clientCert: string,
 		caCert: string,
@@ -27,7 +28,11 @@ export const simulator = (): void => {
 		throw new Error(`Failed to parse the certificate JSON using ${certJSON}!`)
 	}
 
-	const packageJSON = path.resolve(__dirname, '..', 'package.json')
+	const packageJSON = path.resolve(
+		parse(fileURLToPath(import.meta.url)).dir,
+		'..',
+		'package.json',
+	)
 	try {
 		const pjson = JSON.parse(fs.readFileSync(packageJSON, 'utf-8'))
 		version = pjson.version

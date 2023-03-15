@@ -3,7 +3,7 @@ import {
 	WebSocketConnection,
 } from '@nordicsemiconductor/asset-tracker-cloud-device-ui-server'
 import { thingShadow } from 'aws-iot-device-sdk'
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 
 export const defaultConfig = {
 	act: false, // Whether to enable the active mode

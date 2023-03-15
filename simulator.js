@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const chalk = require('chalk')
+import chalk from 'chalk'
 
 const die = (err) => {
 	console.error(chalk.red(`An unhandled exception occured!`))
@@ -11,5 +11,5 @@ const die = (err) => {
 process.on('uncaughtException', die)
 process.on('unhandledRejection', die)
 
-const { simulator } = require('./dist/simulator')
+import { simulator } from './dist/simulator.js'
 simulator()

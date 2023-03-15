@@ -3,6 +3,7 @@
   "version": "0.0.0-development",
   "description": "Simulates an nRF9160-based device for the nRF Asset Tracker for AWS.",
   "bin": "./simulator.js",
+  "type": "module",
   "scripts": {
     "prepare": "husky install"
   },
@@ -24,10 +25,11 @@
   "dependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-device-ui-server": "6.0.0",
     "aws-iot-device-sdk": "2.2.12",
-    "chalk": "4.1.2"
+    "chalk": "5.2.0"
   },
   "devDependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "12.0.4",
+    "@swc/cli": "0.1.62",
     "@types/aws-iot-device-sdk": "2.2.4",
     "@types/node": "18.15.3"
   },
@@ -63,5 +65,6 @@
     "simulator.js",
     "LICENSE",
     "README.md"
-  ]
+  ],
+  "prettier": "@nordicsemiconductor/asset-tracker-cloud-code-style/.prettierrc"
 }
