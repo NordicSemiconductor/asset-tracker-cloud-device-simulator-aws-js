@@ -5,7 +5,8 @@
   "bin": "./simulator.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "prepublishOnly": "npx swc -d dist ./src"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-device-ui-server": "6.0.0",
+    "@nordicsemiconductor/asset-tracker-cloud-docs": "28.1.6",
     "aws-iot-device-sdk": "2.2.12",
     "chalk": "5.2.0"
   },
@@ -31,7 +33,7 @@
     "@nordicsemiconductor/asset-tracker-cloud-code-style": "12.0.6",
     "@swc/cli": "0.1.62",
     "@types/aws-iot-device-sdk": "2.2.4",
-    "@types/node": "18.15.3"
+    "@types/node": "18.15.5"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [

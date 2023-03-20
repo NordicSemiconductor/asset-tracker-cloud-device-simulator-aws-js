@@ -32,9 +32,6 @@ jobs:
       - name: Make sure result compiles
         run: npx tsc
 
-      - name: Compile JS exports
-        run: npx swc -d dist ./src
-
       - name: Semantic release
         continue-on-error: true
         run: npx semantic-release
