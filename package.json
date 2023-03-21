@@ -25,7 +25,7 @@
   "license": "BSD-3-Clause",
   "dependencies": {
     "@nordicsemiconductor/asset-tracker-cloud-device-ui-server": "6.0.0",
-    "@nordicsemiconductor/asset-tracker-cloud-docs": "28.1.7",
+    "@nordicsemiconductor/asset-tracker-cloud-docs": "28.3.5",
     "aws-iot-device-sdk": "2.2.12",
     "chalk": "5.2.0"
   },
