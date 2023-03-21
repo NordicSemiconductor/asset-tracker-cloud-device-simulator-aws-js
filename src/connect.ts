@@ -1,6 +1,6 @@
 import {
 	uiServer,
-	WebSocketConnection,
+	type WebSocketConnection,
 } from '@nordicsemiconductor/asset-tracker-cloud-device-ui-server'
 import type { Config } from '@nordicsemiconductor/asset-tracker-cloud-docs/protocol'
 import type { Static } from '@sinclair/typebox'
