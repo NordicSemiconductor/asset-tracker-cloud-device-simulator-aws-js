@@ -34,7 +34,7 @@
     "@swc/cli": "0.1.62",
     "@types/aws-iot-device-sdk": "2.2.4",
     "@types/node": "18.15.11",
-    "typescript": "5.0.2"
+    "typescript": "5.0.3"
   },
   "lint-staged": {
     "*.{md,json,yaml,yml}": [
