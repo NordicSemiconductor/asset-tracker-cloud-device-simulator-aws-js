@@ -81,9 +81,9 @@ export const connect = async ({
 	console.log()
 
 	const connection = new thingShadow({
-		privateKey: privateKey,
-		clientCert: clientCert,
-		caCert: caCert,
+		privateKey,
+		clientCert,
+		caCert,
 		clientId: deviceId,
 		host: endpoint,
 		region: endpoint.split('.')[2],
@@ -115,7 +115,7 @@ export const connect = async ({
 
 		connection.register(deviceId, {}, async () => {
 			const port = await uiServer({
-				deviceId: deviceId,
+				deviceId,
 				onUpdate: (update) => {
 					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(update)))
 					connection.update(deviceId, { state: { reported: update } })
