@@ -1,7 +1,3 @@
-import {
-	uiServer,
-	type WebSocketConnection,
-} from '@nordicsemiconductor/asset-tracker-cloud-device-ui-server'
 import type { Config } from '@nordicsemiconductor/asset-tracker-cloud-docs/protocol'
 import type { Static } from '@sinclair/typebox'
 import { thingShadow } from 'aws-iot-device-sdk'
@@ -89,65 +85,11 @@ export const connect = async ({
 		region: endpoint.split('.')[2],
 	})
 
-	let wsConnection: WebSocketConnection
-	const wsNotify = (message: Record<string, any>) => {
-		if (wsConnection !== undefined) {
-			console.log(chalk.magenta('[ws>'), JSON.stringify(message))
-			wsConnection.send(JSON.stringify(message))
-		} else {
-			console.warn(chalk.red('Websocket not connected.'))
-		}
-	}
-
 	connection.on('connect', async () => {
 		console.timeEnd(chalk.green(chalk.inverse(' connected ')))
 		clearInterval(connectingNote)
 
-		const messageHandler = (message: string, path: string) => {
-			const topic = `${deviceId}/${path.replace(/^\/+/, '')}`
-			console.log(
-				chalk.magenta('<'),
-				chalk.blue.blueBright(topic),
-				chalk.cyan(message),
-			)
-			connection.publish(topic, message)
-		}
-
 		connection.register(deviceId, {}, async () => {
-			const port = await uiServer({
-				deviceId,
-				onUpdate: (update) => {
-					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(update)))
-					connection.update(deviceId, { state: { reported: update } })
-				},
-				onSensorMessage: (message) => {
-					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(message)))
-					connection.publish(`${deviceId}/messages`, JSON.stringify(message))
-				},
-				onBatch: (batch) => {
-					console.log(chalk.magenta('<'), chalk.cyan(JSON.stringify(batch)))
-					connection.publish(`${deviceId}/batch`, JSON.stringify(batch))
-				},
-				onWsConnection: (c) => {
-					console.log(chalk.magenta('[ws]'), chalk.cyan('connected'))
-					wsConnection = c
-					connection.get(deviceId)
-				},
-				onMessage: {
-					'/pgps/get': messageHandler,
-					'/agps/get': messageHandler,
-					'/ground-fix': messageHandler,
-				},
-			})
-			console.log()
-			console.log(
-				'',
-				chalk.yellowBright(
-					`To control this device use this endpoint in the device simulator UI:`,
-				),
-				chalk.blueBright(`http://localhost:${port}`),
-			)
-			console.log()
 			console.log(
 				chalk.magenta('>'),
 				chalk.cyan(
@@ -173,7 +115,6 @@ export const connect = async ({
 					...cfg,
 					...(stateObject?.desired?.cfg ?? {}),
 				}
-				wsNotify({ config: cfg })
 			}
 		})
 
@@ -182,10 +123,6 @@ export const connect = async ({
 			cfg = {
 				...cfg,
 				...stateObject.state.cfg,
-			}
-			if (wsConnection !== undefined) {
-				console.log(chalk.magenta('[ws>'), JSON.stringify(cfg))
-				wsConnection.send(JSON.stringify(cfg))
 			}
 			console.log(
 				chalk.magenta('>'),
@@ -206,7 +143,6 @@ export const connect = async ({
 				chalk.blue.blueBright(topic),
 				chalk.cyan(payload.toString()),
 			)
-			wsNotify({ message: { topic, payload: payload.toString() } })
 		})
 
 		connection.subscribe(`${deviceId}/pgps`)
