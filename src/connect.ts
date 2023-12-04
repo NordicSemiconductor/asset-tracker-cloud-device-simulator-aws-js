@@ -146,6 +146,6 @@ export const connect = async ({
 		})
 
 		connection.subscribe(`${deviceId}/pgps`)
-		connection.subscribe(`${deviceId}/agps`)
+		connection.subscribe(`${deviceId}/agnss`)
 	})
 }
