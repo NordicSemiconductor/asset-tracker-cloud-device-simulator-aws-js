@@ -34,7 +34,7 @@
     "@nordicsemiconductor/eslint-config-asset-tracker-cloud-typescript": "17.0.0",
     "@swc/cli": "0.1.63",
     "@types/aws-iot-device-sdk": "2.2.8",
-    "@types/node": "20.11.1",
+    "@types/node": "20.11.2",
     "@typescript-eslint/eslint-plugin": "6.18.1",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
