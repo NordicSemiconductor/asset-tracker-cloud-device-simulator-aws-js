@@ -5,7 +5,7 @@
   "bin": "./simulator.js",
   "type": "module",
   "scripts": {
-    "prepare": "husky install",
+    "prepare": "husky",
     "prepublishOnly": "npx swc -d dist ./src"
   },
   "repository": {
@@ -40,6 +40,7 @@
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prefer-arrow": "1.2.3",
     "eslint-plugin-unicorn": "50.0.1",
+    "husky": "9.0.7",
     "typescript": "5.3.3"
   },
   "lint-staged": {
