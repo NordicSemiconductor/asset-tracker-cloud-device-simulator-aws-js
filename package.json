@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "prepare": "husky",
-    "prepublishOnly": "npx swc -d dist ./src"
+    "prepublishOnly": "npx swc --strip-leading-paths --delete-dir-on-start -d dist ./src"
   },
   "repository": {
     "type": "git",
