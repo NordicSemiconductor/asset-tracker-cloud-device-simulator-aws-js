@@ -34,7 +34,7 @@
     "@commitlint/config-conventional": "19.0.3",
     "@swc/cli": "0.3.10",
     "@types/aws-iot-device-sdk": "2.2.8",
-    "@types/node": "20.11.21",
+    "@types/node": "20.11.22",
     "husky": "9.0.11"
   },
   "lint-staged": {
