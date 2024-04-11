@@ -76,7 +76,6 @@
     "access": "public"
   },
   "files": [
-    "package-lock.json",
     "dist",
     "simulator.js",
     "LICENSE",
