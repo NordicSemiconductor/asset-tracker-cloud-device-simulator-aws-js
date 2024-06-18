@@ -15,4 +15,4 @@ Simulates an nRF9160-based device for the
     npm exec -- @nordicsemiconductor/asset-tracker-cloud-device-simulator-aws <path to certificate.json>
 
 > :information_source:
-> [Read the complete nRF Asset Tracker documentation](https://nordicsemiconductor.github.io/asset-tracker-cloud-docs/).
+> [Read the complete nRF Asset Tracker documentation](https://docs.nordicsemi.com/bundle/nrf-asset-tracker-saga/).
