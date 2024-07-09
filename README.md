@@ -1,3 +1,7 @@
+> [!NOTE]  
+>
+> This repository has been archived, because [it is considered feature-complete](https://github.com/NordicSemiconductor/asset-tracker-cloud-docs/discussions/1068). ✔️ 
+
 # Simulates an nRF9160-based device [![npm version](https://img.shields.io/npm/v/@nordicsemiconductor/asset-tracker-cloud-device-simulator-aws.svg)](https://www.npmjs.com/package/@nordicsemiconductor/asset-tracker-cloud-device-simulator-aws)
 
 [![GitHub Actions](https://github.com/NordicSemiconductor/asset-tracker-cloud-device-simulator-aws-js/workflows/Test%20and%20Release/badge.svg)](https://github.com/NordicSemiconductor/asset-tracker-cloud-device-simulator-aws-js/actions)
